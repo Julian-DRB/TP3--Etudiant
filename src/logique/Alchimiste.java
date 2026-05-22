@@ -37,6 +37,10 @@ public class Alchimiste
 
     private void setNom(String nom)
     {
+        if (nom == null || nom.length() < 6) {
+            throw new IllegalArgumentException("Le nom doit contenir au moins 6 caractères.");
+        }
+
         this.nom = nom;
     }
     private void setNiveau(int niveau)
@@ -65,6 +69,10 @@ public class Alchimiste
             int nbExperience = recette.getPointExperience();
             this.ajouterExperience(nbExperience);
             estReussi = true;
+        }
+
+        if (recette == null) {
+            throw new IllegalArgumentException("La recette ne peut pas être null.");
         }
 
         return estReussi;
