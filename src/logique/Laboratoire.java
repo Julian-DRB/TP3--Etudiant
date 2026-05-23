@@ -21,6 +21,10 @@ public class Laboratoire
         this.chargerRecettes();
 
         this.proprietaire = alchimiste;
+
+        if (alchimiste == null) {
+            throw new IllegalArgumentException("Le propriétaire ne peut pas être null.");
+        }
     }
 
     public List<Ingredient> getIngredients()
