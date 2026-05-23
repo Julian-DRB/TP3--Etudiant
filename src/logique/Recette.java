@@ -23,6 +23,23 @@ public class Recette
         this.setDifficulte(difficulte);
         this.setNom(nom);
         this.setPointExperience(pointExperience);
+
+        if (ing1 == null || ing2 == null || ing3 == null) {
+            throw new IllegalArgumentException("Les ingrédients ne peuvent pas être null.");
+        }
+
+        if (ing1.equals(ing2) || ing1.equals(ing3) || ing2.equals(ing3)) {
+            throw new IllegalArgumentException("Une recette ne peut pas contenir deux fois le même ingrédient.");
+        }
+
+        if (ing1.getNom().equals(ing2.getNom()) ||
+                ing1.getNom().equals(ing3.getNom()) ||
+                ing2.getNom().equals(ing3.getNom())) {
+            throw new IllegalArgumentException("Les ingrédients doivent être différents.");
+        }
+
+
+
     }
 
 
@@ -32,6 +49,8 @@ public class Recette
 
     private void setNom(String nom) {
         this.nom = nom;
+
+        if (nom == null || nom.length() < 10) {throw new IllegalArgumentException("Le nom doit contenir au moins 6 caractères."); }
     }
 
     public int getDifficulte() {
@@ -40,6 +59,8 @@ public class Recette
 
     private void setDifficulte(int difficulte) {
         this.difficulte = difficulte;
+
+        if (difficulte < 1 || difficulte > 5) { throw new IllegalArgumentException("la difficulté doit être entre 1 et 5."); }
     }
 
     public int getPointExperience() {
@@ -48,6 +69,8 @@ public class Recette
 
     private void setPointExperience(int pointExperience) {
         this.pointExperience = pointExperience;
+
+        if (pointExperience <= 0) { throw new IllegalArgumentException("Les points d'experience doit être supérieur a 0."); }
     }
 
     public int obtenirPrix()
@@ -71,6 +94,10 @@ public class Recette
                 estContenu = true;
                 break;
             }
+        }
+
+        if (nom == null) {
+            throw new IllegalArgumentException("Le nom ne peut pas être null.");
         }
 
         return estContenu;

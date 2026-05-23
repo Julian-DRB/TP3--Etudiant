@@ -20,7 +20,7 @@ public class Ingredient
         this.nom = nom;
 
         if (nom == null || nom.length() < 6) {
-            throw new IllegalArgumentException("Le nom doit contenir au moins 6 caractères.");
+//            throw new IllegalArgumentException("Le nom doit contenir au moins 6 caractères.");
         }
 
     }
