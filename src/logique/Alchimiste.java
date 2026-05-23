@@ -54,6 +54,10 @@ public class Alchimiste
 
     public boolean fairePotion(Recette recette)
     {
+        if (recette == null) {
+            throw new IllegalArgumentException("La recette ne peut pas être null.");
+        }
+
         boolean estReussi = false;
         double tauxExperience = this.niveau * 0.05;
         double tauxEchec = (recette.getDifficulte() * 0.25) - tauxExperience;
@@ -71,9 +75,7 @@ public class Alchimiste
             estReussi = true;
         }
 
-        if (recette == null) {
-            throw new IllegalArgumentException("La recette ne peut pas être null.");
-        }
+
 
         return estReussi;
     }

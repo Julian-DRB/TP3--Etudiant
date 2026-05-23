@@ -15,21 +15,8 @@ public class Recette
 
     public Recette(Ingredient ing1, Ingredient ing2, Ingredient ing3, String nom, int difficulte, int pointExperience)
     {
-        this.ingredients = new ArrayList<Ingredient>();
-        this.ingredients.add(ing1);
-        this.ingredients.add(ing2);
-        this.ingredients.add(ing3);
-
-        this.setDifficulte(difficulte);
-        this.setNom(nom);
-        this.setPointExperience(pointExperience);
-
         if (ing1 == null || ing2 == null || ing3 == null) {
             throw new IllegalArgumentException("Les ingrédients ne peuvent pas être null.");
-        }
-
-        if (ing1.equals(ing2) || ing1.equals(ing3) || ing2.equals(ing3)) {
-            throw new IllegalArgumentException("Une recette ne peut pas contenir deux fois le même ingrédient.");
         }
 
         if (ing1.getNom().equals(ing2.getNom()) ||
@@ -38,6 +25,14 @@ public class Recette
             throw new IllegalArgumentException("Les ingrédients doivent être différents.");
         }
 
+        this.ingredients = new ArrayList<Ingredient>();
+        this.ingredients.add(ing1);
+        this.ingredients.add(ing2);
+        this.ingredients.add(ing3);
+
+        this.setDifficulte(difficulte);
+        this.setNom(nom);
+        this.setPointExperience(pointExperience);
 
 
     }
