@@ -43,9 +43,10 @@ public class Recette
     }
 
     private void setNom(String nom) {
-        this.nom = nom;
+
 
         if (nom == null || nom.length() < 10) {throw new IllegalArgumentException("Le nom doit contenir au moins 6 caractères."); }
+        this.nom = nom;
     }
 
     public int getDifficulte() {
@@ -53,9 +54,10 @@ public class Recette
     }
 
     private void setDifficulte(int difficulte) {
-        this.difficulte = difficulte;
+
 
         if (difficulte < 1 || difficulte > 5) { throw new IllegalArgumentException("la difficulté doit être entre 1 et 5."); }
+        this.difficulte = difficulte;
     }
 
     public int getPointExperience() {
@@ -63,9 +65,10 @@ public class Recette
     }
 
     private void setPointExperience(int pointExperience) {
-        this.pointExperience = pointExperience;
+
 
         if (pointExperience <= 0) { throw new IllegalArgumentException("Les points d'experience doit être supérieur a 0."); }
+        this.pointExperience = pointExperience;
     }
 
     public int obtenirPrix()
@@ -80,6 +83,10 @@ public class Recette
 
     public boolean contientIngredient(String nom)
     {
+        if (nom == null) {
+            throw new IllegalArgumentException("Le nom ne peut pas être null.");
+        }
+        
         boolean estContenu = false;
 
         for (Ingredient ing : this.ingredients)
@@ -91,9 +98,7 @@ public class Recette
             }
         }
 
-        if (nom == null) {
-            throw new IllegalArgumentException("Le nom ne peut pas être null.");
-        }
+
 
         return estContenu;
     }
