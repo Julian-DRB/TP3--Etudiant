@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Alchimiste
 {
-    public static final int EXPERIENCE_POUR_NIVEAU_SUIVANT = 500;
+    public static final int EXPERIENCE_POUR_NIVEAU_SUIVANT = 1000;
     private String nom;
     private int niveau;
     private int experience;
