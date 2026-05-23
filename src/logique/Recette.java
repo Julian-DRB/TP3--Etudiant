@@ -86,7 +86,7 @@ public class Recette
         if (nom == null) {
             throw new IllegalArgumentException("Le nom ne peut pas être null.");
         }
-        
+
         boolean estContenu = false;
 
         for (Ingredient ing : this.ingredients)
