@@ -38,7 +38,7 @@ class LaboratoireTest {
         Laboratoire laboratoire = new Laboratoire(alchimiste);
 
         Ingredient ingredient =
-                laboratoire.trouverIngredient("Mandragore");
+                laboratoire.trouverIngredient("Mandagore");
 
         assertNotNull(ingredient);
     }

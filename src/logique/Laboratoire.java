@@ -17,14 +17,16 @@ public class Laboratoire
 
     public Laboratoire(Alchimiste alchimiste)
     {
+        if (alchimiste == null) {
+            throw new IllegalArgumentException("Le propriétaire ne peut pas être null.");
+        }
+
         this.chargerIngredients();
         this.chargerRecettes();
 
         this.proprietaire = alchimiste;
 
-        if (alchimiste == null) {
-            throw new IllegalArgumentException("Le propriétaire ne peut pas être null.");
-        }
+
     }
 
     public List<Ingredient> getIngredients()
@@ -118,7 +120,7 @@ public class Laboratoire
 
         try
         {
-            Path path = Paths.get("src/ingredients.txt");
+            Path path = Paths.get("TP3-Etudiant/src/ingredients.txt");
             lignesFichier = Files.readAllLines(path);
         } catch (IOException e) {
             throw new RuntimeException("Fichier non trouvé");
@@ -144,7 +146,7 @@ public class Laboratoire
 
         try
         {
-            Path path = Paths.get("src/recettes.txt");
+            Path path = Paths.get("TP3-Etudiant/src/recettes.txt");
             lignesFichier = Files.readAllLines(path);
         } catch (IOException e) {
             throw new RuntimeException("Fichier non trouvé");
@@ -170,7 +172,7 @@ public class Laboratoire
     private void ajouterRecette(Recette recette)
     {
         String nouvelleRecette = recette.toString();
-        try(PrintWriter output = new PrintWriter(new FileWriter("src/recettes.txt",true)))
+        try(PrintWriter output = new PrintWriter(new FileWriter("TP3-Etudiant/src/recettes.txt", true)))
         {
             output.printf("%s\r\n", nouvelleRecette);
         }
